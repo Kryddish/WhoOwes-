@@ -1,5 +1,110 @@
 .hero {
-	margin-top: 2%;
-	height: 96vh;
+	height: 100vh;
 	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: 
+    /* top, transparent red */ 
+    linear-gradient(
+      rgba(73, 48, 107, 0.7), 
+      rgba(73, 48, 107, 0.7)
+    ),
+    /* bottom, image */
+    url("http://cdn.wallpapersafari.com/30/91/KoI4FZ.jpg");
+    background-size: 100% 100%;
+}
+	  
+div{
+	text-align: center;
+	color: white;
+	font-family: 'Rum Raisin', sans-serif;
+}
+
+.logo {
+	position: relative;
+	width: 100%;
+	top: 0;
+	font-size: 80px;
+	padding-top: 4%;
+	margin: 0;
+}
+
+p{
+	position: relative;
+}
+
+.intro {
+	font-size: 35px;
+	position: relative;
+	margin: 0;
+	padding: 0;
+}
+
+/* code for label and input when screen is mobile */
+
+.contact-form {
+  position: relative;
+}
+
+.register {
+	color: black;
+	font-size: 25px;
+	margin-right: 15%;
+}
+
+ label {
+    display: block;
+    color: black;
+    font-size: 20px;
+
+}
+ input {
+   display: block;
+   padding: 6px;
+   background-color: #e8eeef;
+   color: black;
+   box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+   border-radius: 5px;
+   margin: 5px 0 10px 0;
+   font-size: 15px;
+   border: none;
+  }
+
+  input:focus {
+    background-color: lightgrey;
+    border-radius: 5px;
+    outline:none
+  }
+
+  input[type=submit] {
+  	background-color: #219653;
+  	border: none;
+  	font-size: 20px;
+  	color: white;
+   }
+   	input[type=submit]:hover{
+   		box-shadow: 4px 4px 4px #0D3E22;
+   	}
+
+  
+
+/* code for label and input when screen NOT mobile */
+
+@media screen and (min-width: 760px) {
+  
+  label {
+    display: inline-block;
+    width: 150px;
+  }
+  input {
+    display: inline-block;
+    width: 200px
+  }
+
+}
+
+.already{
+	font-size: 20px;
+	color: black;
 }
