@@ -1,20 +1,26 @@
 import React, { Component } from 'react'
-import logo from './logo.svg'
 import './styles/App.css'
-import Header from './Header'
-import Menu from './Menu'
+import Register from './Register'
 
-class App extends Component {
-  render() {
-    return (
+export default class App extends Component {
 
-      <div className="App">
+	constructor() {
+		super()
 
-      <Header />
+		this.state = {
+			page: 'register'
+		}
+	}
 
-      </div>
-    )
-  }
+	render() {
+		return (
+
+			<div className="App">
+				{this.state.page === 'register' ?
+				<div>
+					<Register page={this.state.page} />
+				</div> : ''}
+			</div>
+			)
+	}
 }
-
-export default App;
