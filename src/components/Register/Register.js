@@ -1,18 +1,15 @@
 import React, { Component } from 'react'
-import './styles/App.css'
-import './styles/Register.css'
+import './Register.css'
 
 export default class Register extends Component {
 
 	handleClick(e) {
 		e.preventDefault()
-
-		console.log(this.props.page)
+		this.props.setPage('login')
 	}
 
 	render() {
 		return (
-			<div>
 				<div className="hero">
 					<p className="logo">Who owes?</p>
 					<div className="intro">
@@ -26,23 +23,19 @@ export default class Register extends Component {
 					<p className="register">Register with your phonenumber:</p>
 					<form onSubmit={this.handleClick.bind(this)} className="contact-form">
 						<div className="contact-item">
-							<label for="name">Full name:</label>
-							<input type="text" />
-						</div>
-							<div className="contact-item">
-							<label for="email">Email:</label>
+							<label htmlFor="name">Full name:</label>
 							<input type="text" />
 						</div>
 						<div className="contact-item">
-							<label for="phone">Phone:</label>
+							<label htmlFor="phone">Phone:</label>
 							<input type="text"  />
 						</div>
 						<div className="contact-item">
-							<label for="address">Password:</label>
+							<label htmlFor="address">Password:</label>
 							<input type="text" />
 						</div>
 						<div className="contact-item">
-							<label for="address"></label>
+							<label htmlFor="address"></label>
 							<input type="submit" value="Register"/>
 						</div>
 						<em>
@@ -52,8 +45,6 @@ export default class Register extends Component {
 						</em>
 					</form>
 				</div>
-			</div>
-
 			)
 	}
 }
