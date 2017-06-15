@@ -4,13 +4,12 @@ import Menu from '../Menu/Menu'
 
 export default class Login extends Component {
 
-
 	render() {
 		return (
-				<div >
-					<Menu />
-				</div>
-			)
+			<div >
+				<Menu />
+			</div>
+		)
 	}
 }
 

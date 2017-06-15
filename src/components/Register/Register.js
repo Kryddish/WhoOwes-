@@ -3,7 +3,7 @@ import './Register.css'
 
 export default class Register extends Component {
 
-	handleClick(e) {
+	handleRegister(e) {
 		e.preventDefault()
 		this.props.setPage('login')
 	}
@@ -21,7 +21,7 @@ export default class Register extends Component {
 						</em>
 					</div>
 					<p className="register">Register with your phonenumber:</p>
-					<form onSubmit={this.handleClick.bind(this)} className="contact-form">
+					<div className="contact-form">
 						<div className="contact-item">
 							<label htmlFor="name">Full name:</label>
 							<input type="text" />
@@ -36,14 +36,15 @@ export default class Register extends Component {
 						</div>
 						<div className="contact-item">
 							<label htmlFor="address"></label>
-							<input type="submit" value="Register"/>
+							<input onClick={this.handleRegister.bind(this)} type="button" value="Register"/>
 						</div>
 						<em>
 							<p className="already">
 								Already have an account? Click here to login.
+								<button onClick={() => this.props.FB.login()}>Log in with facebook</button>
 							</p>
 						</em>
-					</form>
+					</div>
 				</div>
 			)
 	}

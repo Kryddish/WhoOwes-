@@ -22,6 +22,19 @@
     <title>React App</title>
   </head>
   <body>
+  	<script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
+	<script>
+	  // Firebase SDK
+	  var config = {
+	    apiKey: "AIzaSyCK69_lTULNhcqRgNd9O98YkdNCHUR4uIM",
+	    authDomain: "who-owes.firebaseapp.com",
+	    databaseURL: "https://who-owes.firebaseio.com",
+	    projectId: "who-owes",
+	    storageBucket: "who-owes.appspot.com",
+	    messagingSenderId: "119869065811"
+	  }
+	  firebase.initializeApp(config)
+</script>
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
@@ -36,18 +49,5 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-<script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCK69_lTULNhcqRgNd9O98YkdNCHUR4uIM",
-    authDomain: "who-owes.firebaseapp.com",
-    databaseURL: "https://who-owes.firebaseio.com",
-    projectId: "who-owes",
-    storageBucket: "who-owes.appspot.com",
-    messagingSenderId: "119869065811"
-  };
-  firebase.initializeApp(config);
-</script>
   </body>
 </html>
