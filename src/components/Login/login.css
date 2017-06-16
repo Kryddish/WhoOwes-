@@ -1,0 +1,25 @@
+.section {
+	padding-top: 5%;
+}
+
+.add-btn {
+	background-image: url("../../assets/add.png");
+	background-size: 150px 150px;
+	background-color: transparent;
+	border: none;
+	height: 150px;
+	width: 150px;
+	border-radius: 100%;
+}
+	
+.adding form input {
+	width: 100%;
+	padding: 5%;
+	
+}
+
+.add-section {
+	width: 10%;
+	display: block;
+	text-align: center;
+}
