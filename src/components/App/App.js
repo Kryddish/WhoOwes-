@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import './App.css'
 import Register from '../Register/Register'
 import Login from '../Login/Login'
+import AddingDepth from '../AddingDepth/AddingDepth'
 export default class App extends Component {
 
 	constructor() {
