@@ -34,7 +34,7 @@ export default class App extends Component {
 			FB.getLoginStatus(response => {
 				if (response.status === 'connected') {
 					console.log('Logged in.')
-					this.setState({ loggedIn: true, page: '' })
+					this.setState({ loggedIn: true, page: 'login' })
 				}
 				else
 					this.setState({ loggedIn: false })
