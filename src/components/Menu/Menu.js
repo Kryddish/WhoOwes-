@@ -1,22 +1,19 @@
-
 import React, { Component } from 'react'
 import './menu.css'
 
 export default class Menu extends Component {
 
-
 	render() {
 		return (
 				<div>
-				<ul className="menu">
-				  <li><a href="#">My depths</a></li>
-				  <li><a href="#news">Other depths</a></li>
-				  <li><a href="#contact">Add depth</a></li>
-				  <li><a href="#about">Profile</a></li>
-				</ul>
-					
+					<ul className="menu">
+					  <li><button>My depths</button></li>
+					  <li><button>Other depths</button></li>
+					  <li><button>Add depth</button></li>
+					  <li><button>Profile</button></li>
+					</ul>
+					 <button className='fb-btn' onClick={ () => this.props.logoutFacebook() }>Facebook Logout</button>
 				</div>
 			)
 	}
 }
-

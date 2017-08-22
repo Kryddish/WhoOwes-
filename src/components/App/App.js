@@ -1,54 +1,58 @@
-/*global FB*/
 import React, { Component } from 'react'
 import './App.css'
 import Register from '../Register/Register'
-import Login from '../Login/Login'
-import AddingDepth from '../AddingDepth/AddingDepth'
-export default class App extends Component {
+import inlogged from '../inlogged/inlogged'
+import LoginHOC from 'react-facebook-login-hoc'
+// import AddingDepth from '../AddingDepth/AddingDepth'
 
-	constructor() {
-		super()
+const configureLoginProps = {
+  scope: 'public_profile, email',
+  xfbml: false,
+  cookie: false,
+  version: 2.6,
+  language: 'en_US',
+  appId: '219055638605221'
+}
+
+class App extends Component {
+
+	constructor(props) {
+		super(props)
 
 		this.state = {
 			page: 'register',
-			loggedIn: false,
-			FB: null,
-			loggedIn: null
+			loggedIn: false
 		}
+
+		this.status = this.props.fb.status
+	    this.login = this.props.fb.login
+    	this.logout = this.props.fb.logout
 	}
 
-	componentWillMount() {
-		
-		// Facebook SDK
-		this.connectFBSDK(document, 'script', 'facebook-jssdk')
-
-		window.fbAsyncInit = () => {
-			this.setState({ FB })
-
-			FB.init({
-				appId            : '219055638605221',
-				autoLogAppEvents : true,
-				xfbml            : true,
-				version          : 'v2.9'
-			})
-			FB.AppEvents.logPageView()
-			FB.getLoginStatus(response => {
-				if (response.status === 'connected') {
-					console.log('Logged in.')
-					this.setState({ loggedIn: true, page: 'login' })
-				}
-				else
-					this.setState({ loggedIn: false })
-			})
-		}
+	checkLoginState() {
+		this.status(this.getStatus.bind(this))
 	}
 
-	connectFBSDK(d, s, id){
-		var js, fjs = d.getElementsByTagName(s)[0]
-		if (d.getElementById(id)) {return}
-		js = d.createElement(s); js.id = id
-		js.src = "//connect.facebook.net/en_US/sdk.js"
-		fjs.parentNode.insertBefore(js, fjs)
+	getStatus(response) {
+		if (response.authResponse) {
+			this.responseApi.call(this, response.authResponse)
+		}
+		console.log(response)
+	}
+
+	responseApi(res) {
+		console.log('token:', res.accessToken)
+		this.setState({ page: 'login', loggedIn: true })
+	}
+
+	loginFacebook() {
+		this.login(this.getStatus.bind(this))
+	}
+
+	logoutFacebook() {
+		this.logout()
+		console.log('Logged out')
+		this.setPage('register')
 	}
 
 	setPage(page) {
@@ -58,15 +62,25 @@ export default class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				{this.state.page === 'register' && this.state.loggedIn === false ?
+
+				{this.state.page === 'register' ?
 				<div>
-					<Register FB={this.state.FB} setPage = {this.setPage.bind(this)} />
+					{true ?
+					<div>
+						{/* <button className='fb-btn' onClick={ this.checkLoginState.bind(this) }>Get Facebook Login Status</button> */}
+				        
+				       
+			        </div> : null}
+					<Register setPage={this.setPage.bind(this)} loginFacebook={this.loginFacebook.bind(this)}  />
 				</div> : ''}
-			{this.state.page === 'login' ?
+
+				{this.state.page === 'login' ?
 				<div>
-					<Login />
-				</div> : ''}
+					<inlogged logoutFacebook={this.logoutFacebook.bind(this)} />
+				</div> : null}
 			</div>
 		)
 	}
 }
+
+export default LoginHOC(configureLoginProps)(App);

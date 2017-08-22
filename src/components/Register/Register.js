@@ -5,7 +5,7 @@ export default class Register extends Component {
 
 	handleRegister(e) {
 		e.preventDefault()
-		this.props.setPage('login')
+		this.props.setPage('inlogged')
 	}
 
 	render() {
@@ -41,9 +41,9 @@ export default class Register extends Component {
 						<em>
 							<p className="already">
 								Already have an account? Click here to login.
-								<button onClick={() => this.props.FB.login()}>Log in with facebook</button>
 							</p>
 						</em>
+						<button className='fb-btn fb-login' onClick={ this.props.loginFacebook }></button>
 					</div>
 				</div>
 			)

@@ -11,6 +11,11 @@ body{
   text-align: center;
 }
 
+.App .fb-btn {
+  position: relative;
+  z-index: 1;
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
